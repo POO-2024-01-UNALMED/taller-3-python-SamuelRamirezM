@@ -32,10 +32,10 @@ class Control():
 
     def enlazar(self, tv):
         self.tv = tv
-        self.tv.control(self)
+        self.tv.control(self.setControl)
 
-    def getTV(self):
+    def getTv(self):
         return self.tv
     
-    def setTV(self, tv):
+    def setTv(self, tv):
         self.tv = tv
