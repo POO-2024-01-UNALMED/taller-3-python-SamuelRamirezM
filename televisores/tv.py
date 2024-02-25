@@ -43,7 +43,7 @@ class TV():
     
     @classmethod
     def setNumTV(cls, numTV):
-        cls.numTV = numTV
+        cls.numTV += numTV
 
     def turnOff(self):
         self.estado = False
