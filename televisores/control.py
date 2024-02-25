@@ -1,6 +1,6 @@
 class Control():
-    def __init__(self, tv):
-        self.tv = tv
+    def __init__(self):
+        pass
 
     def turnOn(self):
         self.estado = True
@@ -9,11 +9,11 @@ class Control():
         self.estado = False
 
     def canalUp(self):
-        if self.estado and (self.canal >= 1 and self.canal <= 120):
+        if self.estado and (self.canal >= 1 or self.canal <= 120):
             self.canal += 1
 
     def canalDown(self):
-        if self.estado and (self.canal >= 1 and self.canal <= 120):
+        if self.estado and (self.canal >= 1 or self.canal <= 120):
             self.canal -= 1
     
     def volumenUp(self):
@@ -33,3 +33,9 @@ class Control():
     def enlazar(self, tv):
         self.tv = tv
         self.tv.control(self)
+
+    def getTV(self):
+        return self.tv
+    
+    def setTV(self, tv):
+        self.tv = tv
