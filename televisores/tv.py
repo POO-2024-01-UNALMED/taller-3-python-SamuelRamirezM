@@ -1,41 +1,43 @@
 class TV():
     numTV = 0
     def __init__(self, marca, estado):
-        self.marca = marca
-        self.canal = 1
-        self.precio = 500
-        self.estado = estado
-        self.volumen = 1
-        self.control = self
+        self._marca = marca
+        self._canal = 1
+        self._precio = 500
+        self._estado = estado
+        self._volumen = 1
+
+        TV.numTV += 1
+
     def getMarca(self):
-        return self.marca
+        return self._marca
 
     def setMarca(self, marca):
-        self.marca = marca
+        self._marca = marca
 
     def getCanal(self):
-        return self.canal
+        return self._canal
 
     def setCanal(self, canal):
-        self.canal = canal
+        self._canal = canal
 
     def getPrecio(self):
-        return self.precio
+        return self._precio
     
     def setPrecio(self, precio):
-        self.precio = precio
+        self._precio = precio
 
     def getVolumen(self):
-        return self.volumen
+        return self._volumen
     
     def setVolumen(self, volumen):
-        self.volumen = volumen
+        self._volumen = volumen
 
     def getControl(self):
-        return self.control
+        return self._control
     
     def setControl(self, control):
-        self.control = control
+        self._control = control
 
     @classmethod
     def getNumTV(cls):
@@ -43,31 +45,27 @@ class TV():
     
     @classmethod
     def setNumTV(cls, numTV):
-        cls.numTV += numTV
+        cls._numTV = numTV
 
     def turnOff(self):
-        self.estado = False
+        self._estado = False
 
     def turnOn(self):
-        self.estado = True
+        self._estado = True
 
     def getEstado(self):
-        return self.estado
+        return self._estado
     
     def canalUp(self):
-        if self.estado and (self.canal >= 1 or self.canal <= 120):
-            self.canal += 1
+        self.setCanal(self._canal + 1)
 
     def canalDown(self):
-        if self.estado and (self.canal >= 1 or self.canal <= 120):
-            self.canal -= 1
+        self.setCanal(self._canal - 1)
     
     def volumenUp(self):
-        if self.estado:
-            self.volumen += 1
+        self.setVolumen(self._volumen + 1)
     
     def volumenDown(self):
-        if self.estado:
-            self.volumen -= 1
+        self.setVolumen(self._volumen - 1)
 
 
