@@ -23,12 +23,12 @@ class Control():
     def setVolumen(self, volumen) -> None:
         self._tv.setCanal(volumen)
 
-    def enlazar(self, tv: TV):
+    def enlazar(self, tv):
         self._tv = tv
         tv.setControl(self)
 
-    def getTv(self) -> TV:
+    def getTv(self):
         return self._tv
     
-    def setTv(self, tv: TV) -> None:
-        self._tv.setControl()
+    def setTv(self, tv):
+        self._tv.setControl(self)
